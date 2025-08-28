@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { MapPin, LinkIcon, Users, BookOpen, Calendar } from "lucide-react"
 import type { GitHubUser } from "@/types/github"
+import { GitHubActivityCanvas } from "./githuh-actvity"
 
 interface UserProfileProps {
   user: GitHubUser
@@ -14,7 +15,7 @@ interface UserProfileProps {
 export function UserProfile({ user, loading }: UserProfileProps) {
   if (loading) {
     return (
-      <Card className="mb-8 animate-pulse">
+      <Card className="mb-8    animate-pulse">
         <CardContent className="p-6">
           <div className="flex items-start gap-6">
             <div className="w-24 h-24 bg-muted rounded-full" />
@@ -33,11 +34,12 @@ export function UserProfile({ user, loading }: UserProfileProps) {
       </Card>
     )
   }
-
+console.log(user)
   return (
-    <Card className="mb-8 hover:shadow-lg transition-shadow">
+    <div>
+        <Card className="mb-8 hover:shadow-lg w-full h-fit text-wrap   transition-shadow">
       <CardContent className="p-6">
-        <div className="flex items-start gap-6">
+        <div className="flex items-start flex-col md:flex-row gap-6">
           <Avatar className="w-24 h-24">
             <AvatarImage src={user.avatar_url || "/placeholder.svg"} alt={user.name || user.login} />
             <AvatarFallback className="text-2xl">{(user.name || user.login).charAt(0).toUpperCase()}</AvatarFallback>
@@ -53,7 +55,7 @@ export function UserProfile({ user, loading }: UserProfileProps) {
               )}
             </div>
 
-            {user.bio && <p className="text-muted-foreground mb-4 leading-relaxed">{user.bio}</p>}
+            {user.bio && <p className="text-muted-foreground mb-4 leading-relaxed text-wrap">{user.bio}</p>}
 
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">
               {user.location && (
@@ -85,7 +87,7 @@ export function UserProfile({ user, loading }: UserProfileProps) {
               </div>
             </div>
 
-            <div className="flex gap-6">
+            <div className="flex md:gap-6 text-wrap flex-col gap-3 md-flex-row">
               <div className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4 text-muted-foreground" />
                 <span className="font-semibold text-foreground">{user.public_repos}</span>
@@ -106,5 +108,8 @@ export function UserProfile({ user, loading }: UserProfileProps) {
         </div>
       </CardContent>
     </Card>
+       <GitHubActivityCanvas username={user.login} />
+    </div>
+  
   )
 }

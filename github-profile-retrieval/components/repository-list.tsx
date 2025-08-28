@@ -77,11 +77,11 @@ export function RepositoryList({ repos, loading }: RepositoryListProps) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4" />
+                    <Star fill={`${repo.stargazers_count > 0 ? "yellow": ""}`} className={`h-4 w-4 `} />
                     {repo.stargazers_count}
                   </div>
                   <div className="flex items-center gap-1">
-                    <GitFork className="h-4 w-4" />
+                    <GitFork className="h-4 w-4 text-green-600" />
                     {repo.forks_count}
                   </div>
                   <div className="flex items-center gap-1">
