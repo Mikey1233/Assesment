@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { MapPin, LinkIcon, Users, BookOpen, Calendar } from "lucide-react"
 import type { GitHubUser } from "@/types/github"
-import { GitHubActivityCanvas } from "./githuh-actvity"
 
 interface UserProfileProps {
   user: GitHubUser
