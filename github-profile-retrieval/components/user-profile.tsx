@@ -87,7 +87,7 @@ console.log(user)
               </div>
             </div>
 
-            <div className="flex md:gap-6 text-wrap flex-col gap-3 md-flex-row">
+            <div className="flex md:gap-6 text-wrap flex-col gap-3 md:flex-row">
               <div className="flex items-center gap-2">
                 <BookOpen className="h-4 w-4 text-muted-foreground" />
                 <span className="font-semibold text-foreground">{user.public_repos}</span>
@@ -108,7 +108,7 @@ console.log(user)
         </div>
       </CardContent>
     </Card>
-       <GitHubActivityCanvas username={user.login} />
+       {/* <GitHubActivityCanvas username={user.login} /> */}
     </div>
   
   )
